@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="./images/favicon-32x32.png"
-      type="image/x-icon"
-    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./images/favicon-32x32.png"
+      type="image/x-icon"
     />
     <link rel="stylesheet" href="style.css" />
     <title>Interactive Card Details Form | Frontend Mentor Challenge</title>
@@ -36,7 +36,11 @@
             <h1 class="card-number">0000 0000 0000 0000</h1>
             <div class="card-info-front">
               <span class="name">JANE APPLESEED</span>
-              <span class="date">00/00</span>
+              <span class="date"
+                ><span class="card-month">00</span>/<span class="card-year"
+                  >00</span
+                ></span
+              >
             </div>
           </div>
         </div>
@@ -50,7 +54,7 @@
         </div>
       </div>
       <div class="right">
-        <form>
+        <form class="form" onsubmit="return false">
           <div class="cardholder-name-container">
             <label for="name">CARDHOLDER NAME</label>
             <input
@@ -67,7 +71,6 @@
               id="number"
               minlength="16"
               maxlength="16"
-              oninput="controlCardNumberInput()"
               placeholder="e.g. 1234 5678 9123 0000"
               required
             />
@@ -102,14 +105,14 @@
               required
             />
           </div>
-          <button type="submit" class="submit-btn">Confirm</button>
+          <button class="submit-btn">Confirm</button>
         </form>
       </div>
       <div class="completed-state">
         <img src="./images/icon-complete.svg" alt="Tick Logo" />
         <h1 class="thank-you">THANK YOU!</h1>
         <p class="message">We've added your card details</p>
-        <button class="submit-btn">Confirm</button>
+        <button type="submit" class="submit-btn">Confirm</button>
       </div>
     </div>
     <script src="script.js"></script>
