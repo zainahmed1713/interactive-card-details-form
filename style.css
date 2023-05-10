@@ -7,7 +7,6 @@
 body {
     background-color: hsl(270, 3%, 99%);
     font-family: 'Space Grotesk', sans-serif;
-    font-family: space;
     font-size: 18px;
     font-weight: 500;
 }
@@ -36,11 +35,7 @@ body {
 }
 
 .front-card-container {
-    /* display: flex;
-    flex-direction: column; */
     position: absolute;
-    /* top: 50%;
-    right: 50%; */
     transform: translate(5%, 48%);
     z-index: 1;
 }
@@ -52,6 +47,7 @@ body {
 }
 
 .card-number {
+    font-family: inherit;
     font-size: 1.2rem;
     color: white;
     font-weight: 100;
