@@ -15,7 +15,13 @@ const submitButton = document.querySelector('.submit-btn');
 
 getName.addEventListener('input', function () {
     getName.addEventListener('keyup', function () {
-        nameOnCard.innerHTML = getName.value;
+        if (getName.value === '') {
+            nameOnCard.innerHTML = 'JANE APPLESEED';
+        }
+        else {
+            getName.value = getName.value.replace(/[^\D]/g, '')
+            nameOnCard.innerHTML = getName.value;
+        }
     });
 });
 
@@ -23,9 +29,16 @@ getNumber.addEventListener('input', function () {
     if (getNumber.value.length > getNumber.maxLength) {
         getNumber.value = getNumber.value.slice(0, getNumber.maxLength)
     }
-    getNumber.addEventListener('keyup', function () {
-        cardNumber.innerHTML = getNumber.value;
-    });
+    else {
+        getNumber.addEventListener('keyup', function () {
+            if (getNumber.value === '') {
+                cardNumber.innerHTML = '0000 0000 0000 0000';
+            }
+            else {
+                cardNumber.innerHTML = getNumber.value;
+            }
+        });
+    }
 });
 
 getExpMonth.addEventListener('input', function () {
@@ -33,7 +46,12 @@ getExpMonth.addEventListener('input', function () {
         getExpMonth.value = getExpMonth.value.slice(0, getExpMonth.maxLength)
     }
     getExpMonth.addEventListener('keyup', function () {
-        month.innerHTML = getExpMonth.value;
+        if (getExpMonth.value === '') {
+            month.innerHTML = '00';
+        }
+        else {
+            month.innerHTML = getExpMonth.value;
+        }
     });
 });
 
@@ -42,7 +60,12 @@ getExpYear.addEventListener('input', function () {
         getExpYear.value = getExpYear.value.slice(0, getExpYear.maxLength)
     }
     getExpYear.addEventListener('keyup', function () {
-        year.innerHTML = getExpYear.value;
+        if (getExpYear.value === '') {
+            year.innerHTML = '00';
+        }
+        else {
+            year.innerHTML = getExpYear.value;
+        }
     });
 });
 
@@ -51,20 +74,30 @@ getCVC.addEventListener('input', function () {
         getCVC.value = getCVC.value.slice(0, getCVC.maxLength)
     }
     getCVC.addEventListener('keyup', function () {
-        cvc.innerHTML = getCVC.value;
+        if (getCVC.value === '') {
+            cvc.innerHTML = '000'
+        }
+        else {
+            cvc.innerHTML = getCVC.value;
+        }
     });
 });
 
 submitButton.addEventListener('click', function () {
-    const completedState = document.querySelector('.completed-state');
-    const showHideForm = document.querySelector('.form')
-
-    if (completedState.style.display === 'none') {
-        completedState.style.display = 'flex';
-        showHideForm.style.display = 'none';
+    if (getName.value === '' && getNumber.value === '' && getExpMonth === '' && getExpYear === '' && getCVC === '') {
+        alert('Please Fill in the required details');
     }
     else {
-        completedState.style.display = 'none';
-        showHideForm.style.display = 'block';
+        const completedState = document.querySelector('.completed-state');
+        const showHideForm = document.querySelector('.form');
+
+        if (completedState.style.display === 'none') {
+            completedState.style.display = 'flex';
+            showHideForm.style.display = 'none';
+        }
+        else {
+            completedState.style.display = 'none';
+            showHideForm.style.display = 'block';
+        }
     }
-})
+});
