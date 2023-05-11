@@ -9,16 +9,30 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 18px;
     font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.container,
+.left,
+.right,
+.card-info-front,
+.label-container,
+.input-container,
+.completed-state {
+    display: flex;
 }
 
 .container {
-    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.left,
+.card-info-front {
+    position: relative;
+}
+
 .left {
-    display: flex;
     flex-direction: column-reverse;
     width: 100%;
     min-height: 30vh;
@@ -27,67 +41,75 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    position: relative;
 }
 
 .card-bg {
     width: 280px;
 }
 
-.front-card-container {
+.front-card-container,
+.front-card-logo,
+.card-number,
+.back-card-container,
+.cvc,
+.completed-state {
     position: absolute;
+
+}
+
+.front-card-container {
     transform: translate(5%, 48%);
     z-index: 1;
 }
 
 .front-card-logo {
     width: 50px;
-    position: absolute;
     transform: translate(40%, 70%);
+}
+
+.card-number,
+.name,
+.date,
+.cvc,
+.submit-btn {
+    color: white;
 }
 
 .card-number {
     font-family: inherit;
     font-size: 1.2rem;
-    color: white;
     font-weight: 100;
-    letter-spacing: 2px;
-    position: absolute;
     transform: translate(6%, -300%);
 }
 
 .card-info-front {
     width: 250px;
-    display: flex;
     justify-content: space-between;
-    position: relative;
     transform: translate(6%, -290%);
 }
 
 .name,
 .date {
     font-size: 0.6rem;
-    color: white;
-    letter-spacing: 2px;
 }
 
 .back-card-container {
-    position: absolute;
     transform: translate(25%, -10%);
     z-index: 0;
 }
 
+.back-card-container .cvc,
+label {
+    font-size: 0.7rem;
+}
+
 .back-card-container .cvc {
-    position: absolute;
     bottom: 48%;
     right: 12%;
-    font-size: 0.7rem;
-    color: white;
 }
 
 .right {
     width: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -99,9 +121,12 @@ form {
 
 label {
     color: hsl(278, 68%, 11%);
-    font-size: 0.7rem;
     font-weight: bold;
-    letter-spacing: 2px;
+}
+
+input,
+.submit-btn {
+    font-size: 1.1rem;
 }
 
 input {
@@ -109,7 +134,6 @@ input {
     margin-bottom: 15px;
     padding: .8rem;
     font-family: inherit;
-    font-size: 1.1rem;
     letter-spacing: 1px;
     border: 1px solid hsl(270, 3%, 87%);
     border-radius: 5px;
@@ -152,7 +176,6 @@ input::-webkit-inner-spin-button {
 
 .label-container,
 .input-container {
-    display: flex;
     margin-top: 5px;
 }
 
@@ -162,10 +185,8 @@ input::-webkit-inner-spin-button {
 
 .submit-btn {
     font-family: inherit;
-    font-size: 1.1rem;
     letter-spacing: 1px;
     background-color: hsl(278, 68%, 11%);
-    color: white;
     border: none;
     border-radius: 10px;
     padding: 15px;
@@ -180,16 +201,15 @@ input::-webkit-inner-spin-button {
 }
 
 .completed-state {
-    display: flex;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
     transform: translate(0, 125%);
 }
 
-.completed-state img {
+.completed-state img,
+.completed-state p {
     margin-bottom: 30px;
 }
 
@@ -200,12 +220,10 @@ input::-webkit-inner-spin-button {
 
 .completed-state p {
     color: hsl(279, 6%, 55%);
-    margin-bottom: 30px;
 }
 
 .completed-state h1,
 .completed-state p {
-    letter-spacing: 2px;
     font-weight: 100;
 }
 
@@ -297,15 +315,20 @@ input::-webkit-inner-spin-button {
 }
 
 @media (min-width: 992px) {
-    .container {
+
+    .container,
+    .left {
         display: flex;
+    }
+
+    .container {
         flex-direction: row;
         align-items: center;
     }
 
     .left {
-        display: flex;
         flex-direction: column;
+        background-image: url('./images/bg-main-desktop.png');
         width: 30%;
         min-height: 100vh;
         margin-right: 15%;
@@ -375,8 +398,13 @@ input::-webkit-inner-spin-button {
         margin-right: 55px;
     }
 
-    .submit-btn {
+    .submit-btn,
+    .completed-state p {
         font-size: 1rem;
+
+    }
+
+    .submit-btn {
         margin-top: 30px;
     }
 
@@ -391,9 +419,4 @@ input::-webkit-inner-spin-button {
     .completed-state h1 {
         font-size: 2.5rem;
     }
-
-    .completed-state p {
-        font-size: 1rem;
-    }
-
 }
